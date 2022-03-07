@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: verdana;
+        padding: 1rem;
+      }
+      form {
+        border: solid 1px dodgerBlue;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+      }
+      input {
+        height: 3rem;
+      }
+
+      #container {
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      #container > div {
+        background-color: tomato;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0% / 50%;
+      }
+
+      #container > div > span {
+        background-color: cornSilk;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+
+      #container > div.blue {
+        background-color: dodgerBlue;
+        transition: background-color 1s;
+      }
+    </style>
+    <title>Shape Generator</title>
+  </head>
+  <body>
+    <h1><a href='index.html'>Shape Generator (<span id = 'circleTracker'>3</span>)</a></h1>
+    <h2>Todos</h2>
+    <ul>
+      <li>Create a repo named shape-generator and add this index.html page</li>
+      <li>Currently clicking on the center of a circle causes the center to disappear. This is a bug, the blue circle should disappear.</li>
+      <li>
+        Currently the user can enter anything in the input field. Restrict the input to numbers and limit the values to be greater than 25 and less than 250. 
+      </li>
+      <li>
+        Within the h1 element, display the number of circles which are displayed.
+      </li>
+      <li>
+        Within the h1 element, display the average size of the current circles. 
+      </li>
+      <li>
+        Instead of always generating circles, generate either a circle or a square.
+      </li>
+    </ul>
+    <a href='https://github.com/FullstackAcademy/shape-generator'>Repo</a>
+    <form>
+      <input type = 'number' min = '25' max = '250' name='px' value='25'/>
+    </form>
+    <div id='container'>
+    </div>
+    <script>
+      const form = document.querySelector('form');
+      const input = form.querySelector('input');
+      const link = document.querySelector('a');
+      const container = document.querySelector('#container');
+      //const container = document.querySelector('div')
+      const tracker = document.querySelector('#circleTracker')
+
+      container.addEventListener('click', function (ev) {
+        //let target = ev.target
+        //console.log(ev.target)
+
+        // if(ev.target.tagName === 'DIV') {
+        //   ev.target.parentNode.removeChild(ev.target);
+
+        // }
+        //if()
+        //const x = document.getElementsByClassName('blue')
+        
+        
+        if(!ev.target.id){  
+          
+          ev.target.parentNode.parentNode.removeChild(ev.target.parentNode)
+          //I know this removes all the circles if you click on the blue 
+          // if(ev.target.classList.contains('blue')) {
+          //   console.log('yes')
+          // }
+          if(container.classList.contains('blue')) {
+               console.log('blue')
+              tracker.innterHTML = tracker.innterHTML*1  + 1
+          } else {
+          tracker.innterHTML = tracker.innterHTML - 1
+          }
+
+
+
+         
+
+
+
+          
+        }
+
+        
+       
+       
+        
+      });
+
+      
+
+
+
+      
+
+      const generateCircle = ()=> {
+        const size = `${input.value}px`;
+        const circle = document.createElement('div');
+        circle.style.width = size;
+        circle.style.height = size;
+        container.appendChild(circle);
+
+
+        const square = document.createElement('div');
+        square.style.width = size;
+        square.style.height = size;
+        container.appendChild(circle)
+
+
+        const span = document.createElement('span');
+        span.innerText = input.value;
+        circle.appendChild(span);
+        input.value = 25 + Math.floor(Math.random()*50);
+        window.setTimeout(function(){
+          circle.classList.add('blue');
+        }, 500);
+      };
+
+      form.addEventListener('submit', (ev)=> {
+        ev.preventDefault();
+        generateCircle();
+      });
+
+      generateCircle();
+      generateCircle();
+      generateCircle();
+
+    </script>
+  </body>
+</html>
