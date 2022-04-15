@@ -1,0 +1,92 @@
+
+body {
+	font-family: "EBGaramond", serif;
+
+}
+
+p {
+    color: #6d615a;
+    font-size: 20px;
+}
+
+header{
+    height: 500px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom:100px;
+
+}
+#logo{
+    width: 100%;
+   
+}
+
+#logo-box{
+    position: absolute;
+    top: 30px;
+
+    height:30%;
+	width: 40%;
+		box-shadow: inset 0 -5px 20px 2px rgba(0, 0, 0, 0.5);
+   
+
+}
+
+h1{
+    text-align: center;
+    color:black;
+    font-size: 30px;
+}
+
+h3 {
+    color:#704848;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+section {
+    margin: 100px;
+}
+
+#page-break {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+
+}
+
+#poppy{
+    border: 5px solid #cf070712;
+	height: 255px;
+	width: 155px;
+	border-radius: 50%;
+	
+}
+
+
+#bannerTwo{
+    background: linear-gradient(to bottom, rgba(46, 49, 101, 0.25), rgba(255, 255, 255, 0.5)) #d4ecfd;
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#honeyComb {
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(46, 49, 101, 0.25), rgba(255, 255, 255, 0.5)) #d4ecfd;
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 100px 0;
+}
+
+#seasonal {
+    padding: 10px 0 40px;
+    box-shadow: inset 0 2px 5px rgba(76,66,13,0.5);
+
+}
+ul {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
